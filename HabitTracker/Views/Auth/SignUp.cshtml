@@ -1,0 +1,46 @@
+﻿@model SignUpViewModel
+
+<div class="border p-3 mt-4">
+    <div class="row pb-2">
+        <h2 class="text-primary"> Create Account <i class="bi bi-bookmark-plus"></i></h2>
+    </div>
+</div>
+<form asp-action="SignUp">
+    <div class="mb-3">
+        <label asp-for="Firstname"></label>
+        <input asp-for="Firstname" class=" form-control" required />
+        <span asp-validation-for="Firstname" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Lastname"></label>
+        <input asp-for="Lastname" class=" form-control" required />
+        <span asp-validation-for="Lastname" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" class=" form-control" required />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Email" class="form-label mt-4"></label>
+        <input asp-for="Email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" placeholder="Password" class="form-control" required />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="ConfirmPassword" class="form-label"></label>
+        <input asp-for="ConfirmPassword" placeholder="Confirm Password" class="form-control" required />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <button asp-action="SignUp" type="submit" class="btn btn-success">Sign Up</i></button>
+    </div><hr />
+    <div class="mb-3">
+        <p>Already signed up</p>
+        <button><a asp-controller="Auth" asp-action="Login" class="btn btn-success">Login</a></button>
+    </div>
+</form>

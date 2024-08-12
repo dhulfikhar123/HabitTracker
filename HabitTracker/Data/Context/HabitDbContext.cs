@@ -6,13 +6,17 @@ using System.Reflection;
 
 namespace HabitTracker.Data.Context
 {
-    public class HabitDbContext(DbContextOptions<HabitDbContext> options) : DbContext(options)
+    public class HabitDbContext : IdentityDbContext<IdentityUser>
     {
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
+        public HabitDbContext(DbContextOptions<HabitDbContext> options) : base(options)
+        { 
         }
-        public DbSet<Habit> Habits { get; set; }
-    }
+            protected override void OnModelCreating(ModelBuilder modelBuilder)
+            {
+                base.OnModelCreating(modelBuilder);
+            }
+            public DbSet<Habit> Habits { get; set; }
+        }
 }
+
 

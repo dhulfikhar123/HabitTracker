@@ -1,0 +1,32 @@
+﻿@model LoginViewModel
+
+<div class="border p-3 mt-4">
+    <div class="row pb-2">
+        <h2 class="text-primary"> Login <i class="bi bi-bookmark-plus"></i></h2>
+    </div>
+</div>
+
+<form asp-action="Login" method="post">
+
+
+    <div asp-validation-summary="None"></div>
+    <div class="mb-3">
+        <label asp-for="Username" class="form-label">Username: </label>
+        <input asp-for="Username" class=" form-control" required />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-asp-for="Password" class="form-label">Password: </label>
+        <input type="password" class="form-input" placeholder="Password" asp-for="Password" required>
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <button type="submit" class="btn btn-success">Login<i class="bi bi-check-square"></i></button>
+    </div><hr />
+    <div class="mb-3">
+        <p>I don't have an Account</p>
+        <button><a asp-controller="Auth" asp-action="SignUp" class="btn btn-success">Create Account</a></button>
+    </div>
+
+</form>
